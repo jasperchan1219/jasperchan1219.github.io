@@ -1,0 +1,159 @@
+{
+  "site": {
+    "email": "jasperchan1219@gmail.com",
+    "description": "Jasper Cheng-Yen Chan researches visual odometry, 3D mapping, and autonomous UAVs in GPS-denied environments.",
+    "browser_title": "Jasper Cheng-Yen Chan | Robotics Research",
+    "navigation_label": "Explore",
+    "description_2": "Jasper Cheng-Yen Chan\nTaipei, Taiwan",
+    "footer": "© 2026 Jasper Cheng-Yen Chan · Taipei, Taiwan"
+  },
+  "homepage": {
+    "eyebrow": "Prospective PhD applicant · Fall 2027",
+    "role": "Graduate Research Assistant · National Taiwan University",
+    "name": "Jasper Cheng-Yen Chan",
+    "intro": "I develop **3D computer vision and robot autonomy** methods for localization, 3D mapping, and navigation in challenging environments.",
+    "research_interests": "My research spans visual and LiDAR-based localization and mapping, learned correspondence, and safe robot learning. For my PhD, I hope to apply this foundation to socially aware mobile robots that navigate and interact with people in shared spaces."
+  },
+  "research": {
+    "heading": "Research",
+    "visual_odometry_for_indoor_uavs": {
+      "title": "Visual odometry for indoor UAVs",
+      "description": "I developed a hybrid visual odometry pipeline using deep feature detectors for GPS-denied flight. Across the EuRoC sequences, mean absolute trajectory error was 50% lower and mean translational relative pose error was 77% lower than VINS-Fusion. I also evaluated the system in real indoor UAV flights.",
+      "link_url": "https://doi.org/10.6342/NTU202502789",
+      "link_label": "Master’s thesis ↗",
+      "image_path": "assets/uav-platform.png",
+      "image_alt": "Research quadrotor with LiDAR, RGB-D camera, onboard computer, and flight controller",
+      "caption": "Research UAV platform with onboard sensing and computing.",
+      "image_path_2": "assets/indoor-flight.jpeg",
+      "image_alt_2": "Indoor UAV flight experiments conducted in a netted safety area",
+      "caption_2": "Indoor flight experiments in the NTU test area."
+    },
+    "illumination_robust_3d_gaussian_maps": {
+      "title": "Illumination-robust 3D Gaussian maps",
+      "description": "I use LiDAR-inertial geometry to build 3D Gaussian maps in dark spaces lit by a moving onboard light. Observations of the same physical points train a DINOv2-based correspondence encoder. The map stores matching and semantic features in separate fields.",
+      "description_2": "In a dark office test, a similar but incorrect location scored higher than the correct one in 1.4% of comparisons with our learned features, versus 3.8% with pretrained DINOv2. To test recovery from localization errors, we deliberately added a sudden position offset in a simulated scene; map-based correction reduced trajectory position-error RMSE from 23.6 to 11.3 cm against ground truth. We also tested the correction method on real UAV revisit flights. The manuscript is in preparation.",
+      "image_path": "assets/dark-map-overview.png",
+      "image_alt": "Three-stage pipeline: LiDAR-inertial poses and depth initialize a Gaussian map; paired dark images train a correspondence encoder; matching and semantic feature fields are distilled into each scene map",
+      "caption": "LiDAR-inertial mapping, illumination-robust correspondence learning, and per-scene feature distillation.",
+      "image_path_2": "assets/dark-flight-experiment.png",
+      "image_alt_2": "Research quadrotor flying in a dim indoor room with onboard lighting",
+      "caption_2": "Indoor UAV flight in a low-light test environment."
+    },
+    "safe_robot_learning_for_active_3d_reconstruction": {
+      "title": "Safe robot learning for active 3D reconstruction",
+      "description": "With collaborators at NCREE, I developed a hierarchical reinforcement learning framework for monocular MAV reconstruction in simulated indoor environments. A high-level policy selects viewpoints, while a low-level policy navigates with a control barrier function safety filter. SLAM-aware rewards help maintain visual tracking.",
+      "description_2": "In a low-level ablation on unseen simulated layouts, the SLAM-aware variant achieved 88% task success versus 80% without it, with 7% versus 10% tracking failures. We reported the work in an NCREE institutional research report.",
+      "image_path": "assets/rl-architecture.png",
+      "image_alt": "Hierarchical RL architecture from the research presentation: a high-level policy selects a viewpoint waypoint and a low-level navigation policy sends actions to a simulated UAV",
+      "caption": "High-level viewpoint selection and low-level navigation architecture from my research presentation. The NCREE study evaluated the framework in simulation; the diagram is conceptual."
+    }
+  },
+  "earlier_work": {
+    "heading": "Earlier projects",
+    "global_motion_compensation_for_video": {
+      "project_index": "Computer vision · side project",
+      "title": "Global motion compensation for video",
+      "description": "Designed a global motion compensation system for video sequences with camera motion, exploring how alignment can reduce temporal redundancy between frames.",
+      "image_path": "assets/video-motion.png",
+      "image_alt": "Feature correspondences between two street-scene video frames for global motion compensation",
+      "caption": "Example frame correspondences from my project presentation."
+    },
+    "construction_progress_from_schedules_and_images": {
+      "project_index": "Natural language processing · NTU · 2022–2023",
+      "title": "Construction progress from schedules and images",
+      "description": "Built a research framework to align construction schedules with site images. I used part-of-speech tagging and text preprocessing to extract floor and object information, then trained LSTM and BERT models to classify schedule activities for progress analysis."
+    },
+    "window_view_evaluation_in_vr": {
+      "project_index": "Virtual reality · NTU · 2022",
+      "title": "Window view evaluation in VR",
+      "description": "Developed interactive indoor environments in Unity with C# to study how different urban window views affect perception and preference. Participants carried out comparable tasks across the simulated scenes.",
+      "image_path": "assets/window-view-vr.png",
+      "image_alt": "Unity virtual room with a large window showing an urban street scene",
+      "caption": "One of the window-view scenes in the Unity simulation."
+    },
+    "dementia_risk_evaluation_for_nursing_care": {
+      "project_index": "Applied AI · Smart Ageing Tech · 2022",
+      "title": "Dementia risk evaluation for nursing care",
+      "description": "Developed a Random Forest model using nursing notes and resident records to estimate dementia risk. I compared model variants, achieved 94% accuracy on the reported test set, and deployed the model through an API for use in nursing software.",
+      "caption": "Project workflow adapted from my 2022 internship presentation."
+    }
+  },
+  "publications": {
+    "section_label": "Research output",
+    "heading": "Papers & presentations",
+    "description": "Research manuscripts, accepted presentations, and my master’s thesis; statuses updated September 2026.",
+    "pub_title": "“Evaluating Deep Feature Detectors for Visual Odometry in UAVs: Accuracy vs. Robustness under Real-World Flight”",
+    "pub_meta": "C.-Y. Chan, C.-Y. Fan, W.-T. Chang, and C.-S. Chen · Externally reviewed at *IEEE Transactions on Instrumentation and Measurement* (2026); preparing resubmission.",
+    "title": "Manuscript in preparation",
+    "pub_title_2": "“Illumination-Robust Correspondence Fields for Dark 3D Gaussian Maps”",
+    "pub_meta_2": "C.-Y. Chan, W.-T. Chang, and C.-S. Chen · Manuscript in preparation, 2026",
+    "title_2": "Conference papers · accepted for presentation",
+    "pub_title_3": "“UAV Technologies for Civil Engineering Applications in GPS-Denied Environments”",
+    "pub_meta_3": "C.-Y. Chan, W.-T. Chang, and C.-S. Chen · KKHTCNN Symposium on Civil Engineering, National Taiwan University, Taipei · Nov. 2026",
+    "pub_title_4": "“Autonomous UAVs in GPS-Denied Indoor Environments: System Integration, Control, and Applications”",
+    "pub_meta_4": "C.-Y. Chan, W.-T. Chang, and C.-S. Chen · ACMT 2026, Taipei · Oct. 2026",
+    "pub_title_5": "“Autonomous UAV-Based Visual Inspection for Structural Health in Unknown Indoor Buildings”",
+    "pub_meta_5": "C.-Y. Fan, C.-Y. Chan, W.-T. Chang, and C.-S. Chen · ACMT 2026, Taipei · Oct. 2026",
+    "pub_title_6": "“Dynamic-Aware 4D Mapping for Indoor UAV Inspection”",
+    "pub_meta_6": "J.-Z. Lin, C.-Y. Chan, W.-T. Chang, and C.-S. Chen · ACMT 2026, Taipei · Oct. 2026",
+    "pub_title_7": "“Cross-Platform Micro-UAV Self-Localization via Hierarchical Visual Localization on a Prior Map”",
+    "pub_meta_7": "D.-J. Hsu, C.-Y. Chan, W.-T. Chang, and C.-S. Chen · ACMT 2026, Taipei · Oct. 2026",
+    "title_3": "Master’s thesis",
+    "pub_title_8": "“Lightweight Visual Odometry with Deep Features for Autonomous UAVs in GPS-Denied Environments: Real-World Flight Validation”",
+    "pub_meta_8": "Cheng-Yen Chan · National Taiwan University, 2025 · [NTU repository ↗](https://doi.org/10.6342/NTU202502789)"
+  },
+  "background": {
+    "section_label": "Background",
+    "heading": "A systems foundation with a human purpose",
+    "full_time_research_assistant_project_manager": {
+      "title": "Full-time Research Assistant & Project Manager",
+      "dates": "National Center for Research on Earthquake Engineering · Feb. 2026–present",
+      "description": "LiDAR-assisted 3D Gaussian mapping, illumination-robust correspondence, and safe robot learning in simulation."
+    },
+    "research_assistant_project_manager": {
+      "title": "Research Assistant & Project Manager",
+      "dates": "National Taiwan University · Feb. 2023–Feb. 2026",
+      "description": "Coordinated the team’s localization and path-planning work and helped integrate these components for indoor flight. Designed a custom quadrotor with onboard computing, a flight controller, and stereo vision."
+    },
+    "m_s_in_computer_aided_engineering": {
+      "title": "M.S. in Computer-Aided Engineering",
+      "dates": "National Taiwan University · 2023–2025",
+      "description": "Department of Civil Engineering · GPA 4.01/4.30 · Advisor: Prof. Chuin-Shan (David) Chen."
+    },
+    "b_s_in_civil_engineering": {
+      "title": "B.S. in Civil Engineering",
+      "dates": "National Taiwan University · 2019–2023",
+      "description": "GPA 3.84/4.30 · Ranked 17th of 95 students."
+    },
+    "teaching_assistant": {
+      "title": "Teaching assistant",
+      "dates": "National Taiwan University · 2024–2025",
+      "description": "Introduction to Machine Learning and Deep Learning; Computer Programming (Python)."
+    },
+    "why_human_centered_robotics": {
+      "title": "Why human-centered robotics?",
+      "description": "At Smart Ageing Tech, I developed a dementia risk evaluation model for nursing software. It showed me how much deployment and human needs matter alongside model performance. I want to bring that perspective to mobile robots that perceive and move around people."
+    },
+    "research_interests": {
+      "title": "Research interests",
+      "description": "Robust mobile perception, socially aware navigation, expressive robot behavior, and assistive applications in homes, schools, and healthcare settings. These are directions I hope to pursue in doctoral research."
+    },
+    "technical_toolkit": {
+      "title": "Technical toolkit",
+      "description": "Python, C++, PyTorch, TensorFlow, ROS/ROS 2, visual odometry and SLAM, PX4/ArduPilot, Gazebo, LiDAR and RGB-D sensing, Unity, Docker."
+    },
+    "languages": {
+      "title": "Languages",
+      "description": "Mandarin Chinese (native), English (fluent), Japanese (JLPT N2)."
+    },
+    "honors": {
+      "title": "Honors",
+      "description": "Honorable Mention, NASA International Space Apps Challenge (2024)\nFinalist, Lawsnote LegalTech Hackathon (2024)"
+    }
+  },
+  "contact": {
+    "section_label": "Get in touch",
+    "heading": "Let’s talk robotics research.",
+    "description": "I welcome conversations about visual perception, mobile robot autonomy, mapping in difficult environments, and human-centered applications."
+  }
+}
