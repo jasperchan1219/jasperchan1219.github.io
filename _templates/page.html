@@ -626,7 +626,12 @@
         <h1 id="name">{{ text:homepage.name }}<span class="secondary">{{ text:homepage.role }}</span></h1>
         <p class="intro">{{ rich:homepage.intro }}</p>
         <p class="subintro">{{ rich:homepage.research_interests }}</p>
-        <div class="actions"><a class="btn" href="#research">Explore research <span aria-hidden="true">↗</span></a><a class="btn secondary" href="mailto:{{ attr:site.email }}">Email me <span aria-hidden="true">↗</span></a></div>
+        <div class="actions"><a class="btn" href="#research">Explore research <span aria-hidden="true">↗</span></a><a class="btn secondary" href="mailto:{{ attr:site.email }}">Email me <span aria-hidden="true">↗</span></a><a class="btn secondary"
+           href="https://github.com/jasperchan1219"
+           target="_blank"
+           rel="noopener noreferrer">
+          GitHub <span aria-hidden="true">↗</span>
+        </a></div>
       </section>
       <section class="section" id="research" aria-labelledby="research-title"><div class="section-head"><h2 id="research-title">{{ text:research.heading }}</h2></div>
         <article class="project"><h3>{{ text:research.visual_odometry_for_indoor_uavs.title }}</h3><p>{{ rich:research.visual_odometry_for_indoor_uavs.description }}</p><a class="project-link" href="{{ url:research.visual_odometry_for_indoor_uavs.link_url }}" target="_blank" rel="noopener noreferrer">{{ text:research.visual_odometry_for_indoor_uavs.link_label }}</a><div class="project-gallery"><figure class="figure"><img src="{{ asset:research.visual_odometry_for_indoor_uavs.image_path }}" alt="{{ attr:research.visual_odometry_for_indoor_uavs.image_alt }}" width="1920" height="1080" loading="lazy"><figcaption>{{ rich:research.visual_odometry_for_indoor_uavs.caption }}</figcaption></figure><figure class="figure"><img src="{{ asset:research.visual_odometry_for_indoor_uavs.image_path_2 }}" alt="{{ attr:research.visual_odometry_for_indoor_uavs.image_alt_2 }}" width="1278" height="720" loading="lazy"><figcaption>{{ rich:research.visual_odometry_for_indoor_uavs.caption_2 }}</figcaption></figure></div></article>
