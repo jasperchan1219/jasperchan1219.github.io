@@ -21,8 +21,8 @@
       "description": "I developed a hybrid visual odometry pipeline using deep feature detectors for GPS-denied flight. Across the EuRoC sequences, mean absolute trajectory error was 50% lower and mean translational relative pose error was 77% lower than VINS-Fusion. I also evaluated the system in real indoor UAV flights.",
       "link_url": "https://doi.org/10.6342/NTU202502789",
       "link_label": "Master’s thesis ↗",
-      "image_path": "assets/uav-platform.png",
-      "image_alt": "Research quadrotor with LiDAR, RGB-D camera, onboard computer, and flight controller",
+      "image_path": "assets/uav-platform-visual.png",
+      "image_alt": "Research quadrotor for visual odometry",
       "caption": "Research UAV platform with onboard sensing and computing.",
       "image_path_2": "assets/indoor-flight.jpeg",
       "image_alt_2": "Indoor UAV flight experiments conducted in a netted safety area",
@@ -35,8 +35,10 @@
       "image_path": "assets/dark-map-overview.png",
       "image_alt": "Three-stage pipeline: LiDAR-inertial poses and depth initialize a Gaussian map; paired dark images train a correspondence encoder; matching and semantic feature fields are distilled into each scene map",
       "caption": "LiDAR-inertial mapping, illumination-robust correspondence learning, and per-scene feature distillation.",
-      "image_path_2": "assets/dark-flight-experiment.png",
-      "image_alt_2": "Research quadrotor flying in a dim indoor room with onboard lighting",
+      "image_path_2": "assets/uav-platform-lidar.png",
+      "image_alt_2": "Research quadrotor for illumination-robust 3d gaussian maps",
+      "image_path_3": "assets/dark-flight-experiment.png",
+      "image_alt_3": "Research quadrotor flying in a dim indoor room with onboard lighting",
       "caption_2": "Indoor UAV flight in a low-light test environment."
     },
     "safe_robot_learning_for_active_3d_reconstruction": {
