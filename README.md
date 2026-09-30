@@ -30,7 +30,7 @@
 | 學歷、工作、獎項和研究興趣 | `background` |
 | 聯絡區塊 | `contact` |
 
-publication 的標題欄位是 `pub_title`、`pub_title_2` 等；相同編號的 `pub_meta` 是作者和狀態。例如 `pub_title` 搭配 `pub_meta`，`pub_title_2` 搭配 `pub_meta_2`。改狀態時可直接搜尋原本的狀態句子。
+publication 的完整 IEEE-style citation 放在 `pub_title`、`pub_title_2` 等欄位。作者、論文標題、期刊／會議資訊和投稿狀態都寫在同一欄；改狀態或更新出版資訊時，編輯整筆 citation。`
 
 ### 文字格式
 
