@@ -45,7 +45,7 @@
     "safe_robot_learning_for_active_3d_reconstruction": {
       "title": "Safe robot learning for active 3D reconstruction",
       "description": "With collaborators at NTU, we developed a hierarchical reinforcement learning framework for monocular 3D reconstruction with a micro aerial vehicle (MAV) in simulated indoor environments. A high-level policy selects viewpoints, while a low-level policy navigates with a control barrier function safety filter. SLAM-aware rewards help maintain visual tracking.",
-      "description_2": "In a low-level ablation on unseen simulated layouts, the SLAM-aware variant achieved **88% task success versus 80%** without it, with **7% versus 10% tracking failures**."
+      "description_2": "In a low-level ablation on unseen simulated layouts, the SLAM-aware variant achieved **88% task success versus 80%** without it, with **7% versus 10% tracking failures**.",
       "image_path": "assets/rl-architecture.png",
       "image_alt": "Hierarchical RL architecture from the research presentation: a high-level policy selects a viewpoint waypoint and a low-level navigation policy sends actions to a simulated UAV",
       "caption": "High-level viewpoint selection and low-level navigation architecture. This study evaluated the framework in simulation."
