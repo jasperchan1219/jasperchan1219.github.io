@@ -20,10 +20,10 @@
       "title": "Visual odometry for indoor UAVs",
       "description": "I developed a hybrid visual odometry pipeline using deep feature detectors for GPS-denied flight. Across the EuRoC sequences, mean absolute trajectory error was 50% lower and mean translational relative pose error was 77% lower than VINS-Fusion. I also evaluated the system in real indoor UAV flights.",
       "link_url": "https://doi.org/10.6342/NTU202502789",
-      "link_label": "Master’s thesis ↗",
+      "link_label": "NTU thesis record ↗",
       "image_path": "assets/uav-platform-visual.png",
       "image_alt": "Research quadrotor for visual odometry",
-      "caption": "Research UAV platform.",
+      "caption": "Research quadrotor used in the visual odometry experiments.",
       "image_path_2": "assets/indoor-flight.jpeg",
       "image_alt_2": "Indoor UAV flight experiments conducted in a netted safety area",
       "caption_2": "Indoor flight experiments in the NTU test area."
@@ -31,24 +31,24 @@
     "illumination_robust_3d_gaussian_maps": {
       "title": "Illumination-robust 3D Gaussian maps",
       "description": "I use LiDAR-inertial geometry to build 3D Gaussian maps in dark spaces lit by a moving onboard light. Observations of the same physical points train a DINOv2-based correspondence encoder. The map stores matching and semantic features in separate fields.",
-      "description_2": "In a dark office test, a similar but incorrect location scored higher than the correct one in 1.4% of comparisons with our learned features, versus 3.8% with pretrained DINOv2. To test recovery from localization errors, we deliberately added a sudden position offset in a simulated scene; map-based correction reduced trajectory position-error RMSE from 23.6 to 11.3 cm against ground truth. We also tested the correction method on real UAV revisit flights. The manuscript is in preparation.",
+      "description_2": "Experiments in real low-light scenes showed that our learned features better distinguish different locations containing objects of the same category than pretrained DINOv2 features. We also tested map-based pose correction on real UAV flights. The manuscript is in preparation.",
       "image_path": "assets/dark-map-overview.png",
       "image_alt": "Three-stage pipeline: LiDAR-inertial poses and depth initialize a Gaussian map; paired dark images train a correspondence encoder; matching and semantic feature fields are distilled into each scene map",
       "caption": "LiDAR-inertial mapping, illumination-robust correspondence learning, and per-scene feature distillation.",
       "image_path_2": "assets/uav-platform-lidar.png",
-      "image_alt_2": "Research quadrotor for illumination-robust 3d gaussian maps",
-      "caption_2": "Research UAV platform.",
+      "image_alt_2": "Research UAV equipped with LiDAR and onboard lighting",
+      "caption_2": "Research UAV equipped with LiDAR and onboard lighting.",
       "image_path_3": "assets/dark-flight-experiment.png",
-      "image_alt_3": "Research quadrotor flying in a dim indoor room with onboard lighting",
-      "caption_3": "Indoor UAV flight in a low-light test environment."
+      "image_alt_3": "Research UAV flying in a low-light office",
+      "caption_3": "Indoor UAV flight in a low-light office using onboard illumination."
     },
     "safe_robot_learning_for_active_3d_reconstruction": {
       "title": "Safe robot learning for active 3D reconstruction",
-      "description": "With collaborators at NCREE, I developed a hierarchical reinforcement learning framework for monocular MAV reconstruction in simulated indoor environments. A high-level policy selects viewpoints, while a low-level policy navigates with a control barrier function safety filter. SLAM-aware rewards help maintain visual tracking.",
-      "description_2": "In a low-level ablation on unseen simulated layouts, the SLAM-aware variant achieved 88% task success versus 80% without it, with 7% versus 10% tracking failures. We reported the work in an NCREE institutional research report.",
+      "description": "With collaborators at NTU, we developed a hierarchical reinforcement learning framework for monocular 3D reconstruction with a micro aerial vehicle (MAV) in simulated indoor environments. A high-level policy selects viewpoints, while a low-level policy navigates with a control barrier function safety filter. SLAM-aware rewards help maintain visual tracking.",
+      "description_2": "In a low-level ablation on unseen simulated layouts, the SLAM-aware variant achieved 88% task success versus 80% without it, with 7% versus 10% tracking failures.",
       "image_path": "assets/rl-architecture.png",
       "image_alt": "Hierarchical RL architecture from the research presentation: a high-level policy selects a viewpoint waypoint and a low-level navigation policy sends actions to a simulated UAV",
-      "caption": "High-level viewpoint selection and low-level navigation architecture from my research presentation. The NCREE study evaluated the framework in simulation; the diagram is conceptual."
+      "caption": "High-level viewpoint selection and low-level navigation architecture. This study evaluated the framework in simulation."
     }
   },
   "earlier_work": {
