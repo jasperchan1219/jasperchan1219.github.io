@@ -23,7 +23,7 @@
       "link_label": "Master’s thesis ↗",
       "image_path": "assets/uav-platform-visual.png",
       "image_alt": "Research quadrotor for visual odometry",
-      "caption": "Research UAV platform with onboard sensing and computing.",
+      "caption": "Research UAV platform.",
       "image_path_2": "assets/indoor-flight.jpeg",
       "image_alt_2": "Indoor UAV flight experiments conducted in a netted safety area",
       "caption_2": "Indoor flight experiments in the NTU test area."
@@ -37,9 +37,10 @@
       "caption": "LiDAR-inertial mapping, illumination-robust correspondence learning, and per-scene feature distillation.",
       "image_path_2": "assets/uav-platform-lidar.png",
       "image_alt_2": "Research quadrotor for illumination-robust 3d gaussian maps",
+      "caption_2": "Research UAV platform.",
       "image_path_3": "assets/dark-flight-experiment.png",
       "image_alt_3": "Research quadrotor flying in a dim indoor room with onboard lighting",
-      "caption_2": "Indoor UAV flight in a low-light test environment."
+      "caption_3": "Indoor UAV flight in a low-light test environment."
     },
     "safe_robot_learning_for_active_3d_reconstruction": {
       "title": "Safe robot learning for active 3D reconstruction",
