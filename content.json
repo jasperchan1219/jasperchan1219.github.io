@@ -102,12 +102,12 @@
     "heading": "Experience & Education",
     "full_time_research_assistant_project_manager": {
       "title": "Full-time Research Assistant & Project Manager",
-      "dates": "National Center for Research on Earthquake Engineering · Feb. 2026–present",
-      "description": "LiDAR-assisted 3D Gaussian mapping, illumination-robust correspondence, and safe robot learning in simulation."
+      "dates": "National Center for Research on Earthquake Engineering · Oct. 2025–present",
+      "description": "Conduct research in collaboration with NTU on LiDAR-assisted 3D Gaussian mapping, illumination-robust correspondence, and safe robot learning."
     },
     "research_assistant_project_manager": {
       "title": "Research Assistant & Project Manager",
-      "dates": "National Taiwan University · Feb. 2023–Feb. 2026",
+      "dates": "National Taiwan University (NTU) · Feb. 2023–Oct. 2025",
       "description": "Coordinated the team’s localization and path-planning work and helped integrate these components for indoor flight. Designed a custom quadrotor with onboard computing, a flight controller, and stereo vision."
     },
     "m_s_in_computer_aided_engineering": {
@@ -125,17 +125,9 @@
       "dates": "National Taiwan University · 2024–2025",
       "description": "Introduction to Machine Learning and Deep Learning; Computer Programming (Python)."
     },
-    "why_human_centered_robotics": {
-      "title": "Why human-centered robotics?",
-      "description": "At Smart Ageing Tech, I developed a dementia risk evaluation model for nursing software. It showed me how much deployment and human needs matter alongside model performance. I want to bring that perspective to mobile robots that perceive and move around people."
-    },
-    "research_interests": {
-      "title": "Research interests",
-      "description": "Robust mobile perception, socially aware navigation, expressive robot behavior, and assistive applications in homes, schools, and healthcare settings. These are directions I hope to pursue in doctoral research."
-    },
     "technical_toolkit": {
       "title": "Technical toolkit",
-      "description": "Python, C++, PyTorch, TensorFlow, ROS/ROS 2, visual odometry and SLAM, PX4/ArduPilot, Gazebo, LiDAR and RGB-D sensing, Unity, Docker."
+      "description": "Python, C++, ROS/ROS 2, Linux, visual and LiDAR-based odometry and SLAM, LiDAR and RGB-D sensing, PX4/ArduPilot, Gazebo, Unity (AR/VR), PyTorch, TensorFlow, Docker."
     },
     "languages": {
       "title": "Languages",
