@@ -54,7 +54,7 @@
   "earlier_work": {
     "heading": "Earlier projects",
     "global_motion_compensation_for_video": {
-      "project_index": "Computer vision · side project",
+      "project_index": "Computer vision course project · 2023",
       "title": "Global motion compensation for video",
       "description": "Designed a global motion compensation system for video sequences with camera motion, exploring how alignment can reduce temporal redundancy between frames.",
       "image_path": "assets/video-motion.png",
@@ -62,12 +62,12 @@
       "caption": "Example frame correspondences from my project presentation."
     },
     "construction_progress_from_schedules_and_images": {
-      "project_index": "Natural language processing · NTU · 2022–2023",
-      "title": "Construction progress from schedules and images",
-      "description": "Built a research framework to align construction schedules with site images. I used part-of-speech tagging and text preprocessing to extract floor and object information, then trained LSTM and BERT models to classify schedule activities for progress analysis."
+      "project_index": "Undergraduate research · NTU · 2022–2023",
+      "title": "Construction progress monitoring from schedules and images",
+      "description": "Built a research framework to align construction schedules with site images. I used part-of-speech tagging and text preprocessing to extract floor and object information from progress documents, then trained LSTM and BERT models to classify schedule activities for progress analysis."
     },
     "window_view_evaluation_in_vr": {
-      "project_index": "Virtual reality · NTU · 2022",
+      "project_index": "Undergraduate research · NTU · 2022",
       "title": "Window view evaluation in VR",
       "description": "Developed interactive indoor environments in Unity with C# to study how different urban window views affect perception and preference. Participants carried out comparable tasks across the simulated scenes.",
       "image_path": "assets/window-view-vr.png",
@@ -75,7 +75,7 @@
       "caption": "One of the window-view scenes in the Unity simulation."
     },
     "dementia_risk_evaluation_for_nursing_care": {
-      "project_index": "Applied AI · Smart Ageing Tech · 2022",
+      "project_index": "AI and data science intern · Smart Ageing Tech · 2022",
       "title": "Dementia risk evaluation for nursing care",
       "description": "Developed a Random Forest model using nursing notes and resident records to estimate dementia risk. I compared model variants, achieved 94% accuracy on the reported test set, and deployed the model through an API for use in nursing software.",
       "caption": "Project workflow adapted from my 2022 internship presentation."
