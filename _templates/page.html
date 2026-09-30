@@ -19,7 +19,7 @@
   <div class="shell">
     <aside class="rail" aria-label="Site navigation">
       <a class="mark" href="#top" aria-label="Jasper Chan, back to top">JC<span>.</span></a>
-      <div><p class="rail-title">{{ rich:site.navigation_label }}</p><nav aria-label="Primary"><a href="#research">Research</a><a href="#earlier-work">Earlier projects</a><a href="#publications">Publications</a><a href="#background">Background</a><a href="#contact">Contact</a></nav></div>
+      <div><p class="rail-title">{{ rich:site.navigation_label }}</p><nav aria-label="Primary"><a href="#research">Research</a><a href="#earlier-work">Earlier projects</a><a href="#publications">Publications</a><a href="#background">Background</a></nav></div>
       <div class="rail-foot"><p>{{ rich:site.description_2 }}</p><a href="mailto:{{ attr:site.email }}">{{ text:site.email }}</a></div>
     </aside>
     <main class="main" id="top">
@@ -87,23 +87,69 @@
         <ul class="pub-list"><li><div class="pub-title">{{ rich:publications.pub_title_8 }}</div></li></ul>
       </section>
       <section class="section" id="background" aria-labelledby="background-title">
-        <div class="section-head"><p class="kicker">{{ rich:background.section_label }}</p><h2 id="background-title">{{ text:background.heading }}</h2></div>
-        <div class="two-col"><div>
-          <div class="timeline"><strong>{{ text:background.full_time_research_assistant_project_manager.title }}</strong><small>{{ text:background.full_time_research_assistant_project_manager.dates }}</small><p>{{ rich:background.full_time_research_assistant_project_manager.description }}</p></div>
-          <div class="timeline"><strong>{{ text:background.research_assistant_project_manager.title }}</strong><small>{{ text:background.research_assistant_project_manager.dates }}</small><p>{{ rich:background.research_assistant_project_manager.description }}</p></div>
-          <div class="timeline"><strong>{{ text:background.m_s_in_computer_aided_engineering.title }}</strong><small>{{ text:background.m_s_in_computer_aided_engineering.dates }}</small><p>{{ rich:background.m_s_in_computer_aided_engineering.description }}</p></div>
-          <div class="timeline"><strong>{{ text:background.b_s_in_civil_engineering.title }}</strong><small>{{ text:background.b_s_in_civil_engineering.dates }}</small><p>{{ rich:background.b_s_in_civil_engineering.description }}</p></div>
-          <div class="timeline"><strong>{{ text:background.teaching_assistant.title }}</strong><small>{{ text:background.teaching_assistant.dates }}</small><p>{{ rich:background.teaching_assistant.description }}</p></div>
-        </div><div>
-          <div class="timeline"><strong>{{ text:background.why_human_centered_robotics.title }}</strong><p>{{ rich:background.why_human_centered_robotics.description }}</p></div>
-          <div class="timeline"><strong>{{ text:background.research_interests.title }}</strong><p>{{ rich:background.research_interests.description }}</p></div>
-          <div class="timeline"><strong>{{ text:background.technical_toolkit.title }}</strong><p>{{ rich:background.technical_toolkit.description }}</p></div>
-          <div class="timeline"><strong>{{ text:background.languages.title }}</strong><p>{{ rich:background.languages.description }}</p></div>
-          <div class="timeline"><strong>{{ text:background.honors.title }}</strong><p>{{ rich:background.honors.description }}</p></div>
-        </div></div>
+        <div class="section-head">
+          <p class="kicker">{{ rich:background.section_label }}</p>
+          <h2 id="background-title">{{ text:background.heading }}</h2>
+        </div>
+      
+        <h3 class="pub-category">Research Experience</h3>
+        <div class="timeline">
+          <strong>{{ text:background.full_time_research_assistant_project_manager.title }}</strong>
+          <small>{{ text:background.full_time_research_assistant_project_manager.dates }}</small>
+          <p>{{ rich:background.full_time_research_assistant_project_manager.description }}</p>
+        </div>
+        <div class="timeline">
+          <strong>{{ text:background.research_assistant_project_manager.title }}</strong>
+          <small>{{ text:background.research_assistant_project_manager.dates }}</small>
+          <p>{{ rich:background.research_assistant_project_manager.description }}</p>
+        </div>
+      
+        <h3 class="pub-category">Education</h3>
+        <div class="timeline">
+          <strong>{{ text:background.m_s_in_computer_aided_engineering.title }}</strong>
+          <small>{{ text:background.m_s_in_computer_aided_engineering.dates }}</small>
+          <p>{{ rich:background.m_s_in_computer_aided_engineering.description }}</p>
+        </div>
+        <div class="timeline">
+          <strong>{{ text:background.b_s_in_civil_engineering.title }}</strong>
+          <small>{{ text:background.b_s_in_civil_engineering.dates }}</small>
+          <p>{{ rich:background.b_s_in_civil_engineering.description }}</p>
+        </div>
+      
+        <h3 class="pub-category">Teaching Experience</h3>
+        <div class="timeline">
+          <strong>{{ text:background.teaching_assistant.title }}</strong>
+          <small>{{ text:background.teaching_assistant.dates }}</small>
+          <p>{{ rich:background.teaching_assistant.description }}</p>
+        </div>
+      
+        <div class="two-col">
+          <div>
+            <h3 class="pub-category">Honors &amp; Awards</h3>
+            <div class="timeline">
+              <p>{{ rich:background.honors.description }}</p>
+            </div>
+          </div>
+      
+          <div>
+            <h3 class="pub-category">Skills &amp; Languages</h3>
+            <div class="timeline">
+              <strong>{{ text:background.technical_toolkit.title }}</strong>
+              <p>{{ rich:background.technical_toolkit.description }}</p>
+            </div>
+            <div class="timeline">
+              <strong>{{ text:background.languages.title }}</strong>
+              <p>{{ rich:background.languages.description }}</p>
+            </div>
+          </div>
+        </div>
       </section>
-      <section class="section contact" id="contact" aria-labelledby="contact-title"><p class="kicker">{{ rich:contact.section_label }}</p><h2 id="contact-title">{{ text:contact.heading }}</h2><p>{{ rich:contact.description }}</p><a class="email" href="mailto:{{ attr:site.email }}">{{ text:site.email }} ↗</a></section>
-      <footer class="footer">{{ rich:site.footer }}</footer>
+      <footer class="footer">
+        <a class="project-link" href="mailto:{{ attr:site.email }}">
+          {{ text:site.email }} ↗
+        </a>
+        <p style="margin: .8rem 0 0;">{{ rich:site.footer }}</p>
+      </footer>
     </main>
   </div>
 </body>
