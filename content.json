@@ -99,7 +99,7 @@
   },
   "background": {
     "section_label": "Background",
-    "heading": "A systems foundation with a human purpose",
+    "heading": "Experience & Education",
     "full_time_research_assistant_project_manager": {
       "title": "Full-time Research Assistant & Project Manager",
       "dates": "National Center for Research on Earthquake Engineering · Feb. 2026–present",
@@ -145,10 +145,5 @@
       "title": "Honors",
       "description": "Honorable Mention, NASA International Space Apps Challenge (2024)\nFinalist, Lawsnote LegalTech Hackathon (2024)"
     }
-  },
-  "contact": {
-    "section_label": "Get in touch",
-    "heading": "Let’s talk robotics research.",
-    "description": "I welcome conversations about visual perception, mobile robot autonomy, mapping in difficult environments, and human-centered applications."
   }
 }
