@@ -608,15 +608,44 @@
       .project-gallery {
         grid-template-columns: 1fr;
       }
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.2rem;
+    }
+    
+    .profile-photo {
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+    }
+    
+    @media (max-width: 900px) {
+      .profile {
+        flex-direction: row;
+        align-items: center;
+        gap: .8rem;
+      }
     }
   </style>
 </head>
 <body>
   <div class="shell">
     <aside class="rail" aria-label="Site navigation">
+    <div class="profile">
+      <img class="profile-photo"
+           src="assets/jasper-profile.jpg"
+           alt="Jasper Cheng-Yen Chan"
+           width="160"
+           height="160">
+    
       <a class="mark" href="#top" aria-label="Jasper Chan, back to top">
         Jasper Chan
       </a>
+    </div>
       <div><p class="rail-title">{{ rich:site.navigation_label }}</p><nav aria-label="Primary"><a href="#research">Research</a><a href="#earlier-work">Earlier projects</a><a href="#publications">Publications</a><a href="#background">Background</a></nav></div>
       <div class="rail-foot"><p>{{ rich:site.description_2 }}</p><a href="mailto:{{ attr:site.email }}">{{ text:site.email }}</a></div>
     </aside>
