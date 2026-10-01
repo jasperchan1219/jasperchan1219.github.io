@@ -647,7 +647,13 @@
     
       <a class="mark" href="#top">Jasper Chan</a>
     </div>
-      <div><p class="rail-title">{{ rich:site.navigation_label }}</p><nav aria-label="Primary"><a href="#research">Research</a><a href="#earlier-work">Earlier projects</a><a href="#publications">Publications</a><a href="#background">Background</a></nav></div>
+      <div><p class="rail-title">{{ rich:site.navigation_label }}</p><nav aria-label="Primary">
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#background">Background</a>
+        <a href="#earlier-work">Earlier projects</a>
+      </nav>
+      </div>
       <div class="rail-foot"><p>{{ rich:site.description_2 }}</p><a href="mailto:{{ attr:site.email }}">{{ text:site.email }}</a></div>
     </aside>
     <main class="main" id="top">
@@ -693,15 +699,6 @@
           </div>
         </article>
         <article class="project"><h3>{{ text:research.safe_robot_learning_for_active_3d_reconstruction.title }}</h3><p>{{ rich:research.safe_robot_learning_for_active_3d_reconstruction.description }}</p><p>{{ rich:research.safe_robot_learning_for_active_3d_reconstruction.description_2 }}</p><figure class="figure"><img src="{{ asset:research.safe_robot_learning_for_active_3d_reconstruction.image_path }}" alt="{{ attr:research.safe_robot_learning_for_active_3d_reconstruction.image_alt }}" width="994" height="787" loading="lazy"><figcaption>{{ rich:research.safe_robot_learning_for_active_3d_reconstruction.caption }}</figcaption></figure></article>
-      </section>
-      <section class="section" id="earlier-work" aria-labelledby="earlier-title">
-        <div class="section-head"><h2 id="earlier-title">{{ text:earlier_work.heading }}</h2></div>
-        <div class="earlier-grid">
-          <article class="earlier-card"><div class="project-index">{{ text:earlier_work.global_motion_compensation_for_video.project_index }}</div><h3>{{ text:earlier_work.global_motion_compensation_for_video.title }}</h3><p>{{ rich:earlier_work.global_motion_compensation_for_video.description }}</p><figure class="figure"><img src="{{ asset:earlier_work.global_motion_compensation_for_video.image_path }}" alt="{{ attr:earlier_work.global_motion_compensation_for_video.image_alt }}" width="566" height="368" loading="lazy"><figcaption>{{ rich:earlier_work.global_motion_compensation_for_video.caption }}</figcaption></figure></article>
-          <article class="earlier-card"><div class="project-index">{{ text:earlier_work.construction_progress_from_schedules_and_images.project_index }}</div><h3>{{ text:earlier_work.construction_progress_from_schedules_and_images.title }}</h3><p>{{ rich:earlier_work.construction_progress_from_schedules_and_images.description }}</p></article>
-          <article class="earlier-card"><div class="project-index">{{ text:earlier_work.window_view_evaluation_in_vr.project_index }}</div><h3>{{ text:earlier_work.window_view_evaluation_in_vr.title }}</h3><p>{{ rich:earlier_work.window_view_evaluation_in_vr.description }}</p><figure class="figure"><img src="{{ asset:earlier_work.window_view_evaluation_in_vr.image_path }}" alt="{{ attr:earlier_work.window_view_evaluation_in_vr.image_alt }}" width="580" height="256" loading="lazy"><figcaption>{{ rich:earlier_work.window_view_evaluation_in_vr.caption }}</figcaption></figure></article>
-          <article class="earlier-card"><div class="project-index">{{ text:earlier_work.dementia_risk_evaluation_for_nursing_care.project_index }}</div><h3>{{ text:earlier_work.dementia_risk_evaluation_for_nursing_care.title }}</h3><p>{{ rich:earlier_work.dementia_risk_evaluation_for_nursing_care.description }}</p><figure class="figure care-figure" aria-label="Nursing notes and resident records feed a Random Forest model, which provides a risk estimate in nursing software"><div class="care-flow"><div class="care-step">Nursing notes &amp; resident records</div><div class="care-arrow" aria-hidden="true">↓</div><div class="care-step">Random Forest risk model</div><div class="care-arrow" aria-hidden="true">↓</div><div class="care-step">Risk estimate in nursing software</div></div><figcaption>{{ rich:earlier_work.dementia_risk_evaluation_for_nursing_care.caption }}</figcaption></figure></article>
-        </div>
       </section>
       <section class="section" id="publications" aria-labelledby="publications-title">
         <div class="section-head"><p class="kicker">{{ rich:publications.section_label }}</p><h2 id="publications-title">{{ text:publications.heading }}</h2><p>{{ rich:publications.description }}</p></div>
@@ -775,6 +772,15 @@
               <p>{{ rich:background.languages.description }}</p>
             </div>
           </div>
+        </div>
+      </section>
+      <section class="section" id="earlier-work" aria-labelledby="earlier-title">
+        <div class="section-head"><h2 id="earlier-title">{{ text:earlier_work.heading }}</h2></div>
+        <div class="earlier-grid">
+          <article class="earlier-card"><div class="project-index">{{ text:earlier_work.global_motion_compensation_for_video.project_index }}</div><h3>{{ text:earlier_work.global_motion_compensation_for_video.title }}</h3><p>{{ rich:earlier_work.global_motion_compensation_for_video.description }}</p><figure class="figure"><img src="{{ asset:earlier_work.global_motion_compensation_for_video.image_path }}" alt="{{ attr:earlier_work.global_motion_compensation_for_video.image_alt }}" width="566" height="368" loading="lazy"><figcaption>{{ rich:earlier_work.global_motion_compensation_for_video.caption }}</figcaption></figure></article>
+          <article class="earlier-card"><div class="project-index">{{ text:earlier_work.construction_progress_from_schedules_and_images.project_index }}</div><h3>{{ text:earlier_work.construction_progress_from_schedules_and_images.title }}</h3><p>{{ rich:earlier_work.construction_progress_from_schedules_and_images.description }}</p></article>
+          <article class="earlier-card"><div class="project-index">{{ text:earlier_work.window_view_evaluation_in_vr.project_index }}</div><h3>{{ text:earlier_work.window_view_evaluation_in_vr.title }}</h3><p>{{ rich:earlier_work.window_view_evaluation_in_vr.description }}</p><figure class="figure"><img src="{{ asset:earlier_work.window_view_evaluation_in_vr.image_path }}" alt="{{ attr:earlier_work.window_view_evaluation_in_vr.image_alt }}" width="580" height="256" loading="lazy"><figcaption>{{ rich:earlier_work.window_view_evaluation_in_vr.caption }}</figcaption></figure></article>
+          <article class="earlier-card"><div class="project-index">{{ text:earlier_work.dementia_risk_evaluation_for_nursing_care.project_index }}</div><h3>{{ text:earlier_work.dementia_risk_evaluation_for_nursing_care.title }}</h3><p>{{ rich:earlier_work.dementia_risk_evaluation_for_nursing_care.description }}</p><figure class="figure care-figure" aria-label="Nursing notes and resident records feed a Random Forest model, which provides a risk estimate in nursing software"><div class="care-flow"><div class="care-step">Nursing notes &amp; resident records</div><div class="care-arrow" aria-hidden="true">↓</div><div class="care-step">Random Forest risk model</div><div class="care-arrow" aria-hidden="true">↓</div><div class="care-step">Risk estimate in nursing software</div></div><figcaption>{{ rich:earlier_work.dementia_risk_evaluation_for_nursing_care.caption }}</figcaption></figure></article>
         </div>
       </section>
       <footer class="footer">
