@@ -40,7 +40,10 @@
       "caption_2": "Research UAV equipped with LiDAR and onboard lighting.",
       "image_path_3": "assets/dark-flight-experiment.png",
       "image_alt_3": "Research UAV flying in a low-light office",
-      "caption_3": "Indoor UAV flight in a low-light office using onboard illumination."
+      "caption_3": "Indoor UAV flight in a low-light office using onboard illumination.",
+      "comparison_image_path": "assets/fig_corr_4panel_office.png",
+      "comparison_image_alt": "Cross-view correspondence on a planar surface under changing onboard illumination: Feature-3DGS (LSeg) collapses matches to a few locations, while our learned correspondence field better preserves spatial distinctions.",
+      "comparison_caption": "Correspondence under changing onboard illumination. Feature-3DGS (LSeg) maps distinct surface points to a few locations, while our learned features better preserve their spatial distinctions."
     },
     "safe_robot_learning_for_active_3d_reconstruction": {
       "title": "Safe robot learning for active 3D reconstruction",
