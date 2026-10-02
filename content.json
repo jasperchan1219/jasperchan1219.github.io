@@ -105,12 +105,12 @@
     "heading": "Experience & Education",
     "full_time_research_assistant_project_manager": {
       "title": "Full-time Research Assistant & Project Manager",
-      "dates": "National Center for Research on Earthquake Engineering · Oct. 2025–present",
-      "description": "Conduct research in collaboration with NTU on LiDAR-assisted 3D Gaussian mapping, illumination-robust correspondence, and safe robot learning."
+      "dates": "National Taiwan University · Oct. 2025–present",
+      "description": "Conduct research in collaboration with National Center for Research on Earthquake Engineering on LiDAR-assisted 3D Gaussian mapping, illumination-robust correspondence, and safe robot learning."
     },
     "research_assistant_project_manager": {
       "title": "Research Assistant & Project Manager",
-      "dates": "National Taiwan University (NTU) · Feb. 2023–Oct. 2025",
+      "dates": "National Taiwan University · Feb. 2023–Oct. 2025",
       "description": "Coordinated the team’s localization and path-planning work and helped integrate these components for indoor flight. Designed a custom quadrotor with onboard computing, a flight controller, and stereo vision."
     },
     "m_s_in_computer_aided_engineering": {
