@@ -1,815 +1,144 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0c1b2d">
-  <meta name="description" content="{{ attr:site.description }}">
-  <title>{{ text:site.browser_title }}</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230c1b2d'/%3E%3Cpath d='M15 37 32 17l17 20M21 33v13h22V33' fill='none' stroke='%2384cbd8' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='32' cy='35' r='5' fill='%23ef9c64'/%3E%3C/svg%3E">
-  <style>
-    :root {
-      color-scheme: light;
-      --ink: #0c1b2d;
-      --muted: #51637a;
-      --blue: #195b75;
-      --accent: #b5572b;
-      --line: #d8e1e6;
-      --paper: #f7f8f6;
-      --white: #fff;
-      --aqua: #8acbd7;
-    }
-  
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-  
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font: 16px/1.65 ui-sans-serif, system-ui, -apple-system,
-        BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-  
-    a { color: inherit; text-decoration: none; }
-    a:focus-visible {
-      outline: 3px solid var(--accent);
-      outline-offset: 4px;
-    }
-  
-    img { max-width: 100%; height: auto; display: block; }
-    h1, h2, h3, p { margin-top: 0; }
-    h1, h2, h3 { line-height: 1.14; letter-spacing: -.045em; }
-  
-    h1 {
-      font-size: clamp(2.9rem, 6.3vw, 5.7rem);
-      font-weight: 650;
-      margin-bottom: 1.4rem;
-    }
-  
-    h2 {
-      font-size: clamp(2rem, 3.2vw, 3.15rem);
-      font-weight: 650;
-    }
-  
-    h3 {
-      font-size: clamp(1.35rem, 2vw, 1.75rem);
-      font-weight: 650;
-    }
-  
-    .shell {
-      display: grid;
-      grid-template-columns: minmax(245px, 27%) minmax(0, 1fr);
-      min-height: 100vh;
-    }
-  
-    .rail {
-      background: var(--ink);
-      color: #edf4f5;
-      padding: 2.2rem clamp(1.45rem, 3vw, 3.4rem);
-      display: flex;
-      flex-direction: column;
-      gap: 3rem;
-      position: sticky;
-      top: 0;
-      height: 100vh;
-    }
-  
-    .mark {
-      font-weight: 750;
-      letter-spacing: -.03em;
-      font-size: 1.8rem;
-      line-height: 1;
-    }
-  
-    .mark span { color: var(--aqua); }
-  
-    .rail nav {
-      display: grid;
-      gap: 1rem;
-    }
-  
-    .rail nav a {
-      color: #aec2cc;
-      font-size: 1.1rem;
-      font-weight: 550;
-      max-width: max-content;
-    }
-  
-    .rail nav a:hover,
-    .rail nav a:focus-visible {
-      color: white;
-    }
-  
-    .rail-title {
-      font-size: .8rem;
-      text-transform: uppercase;
-      letter-spacing: .18em;
-      color: var(--aqua);
-      font-weight: 750;
-      margin-bottom: 1.1rem;
-    }
-  
-    .rail-foot {
-      margin-top: auto;
-      color: #a9bdc6;
-      font-size: 1rem;
-    }
-  
-    .rail-foot a {
-      color: white;
-      border-bottom: 1px solid #668291;
-      overflow-wrap: anywhere;
-    }
-  
-    .main {
-      max-width: 1160px;
-      width: 100%;
-      margin: 0 auto;
-    }
-  
-    .hero {
-      padding: clamp(2.4rem, 5vw, 5.3rem)
-        clamp(1.5rem, 5.8vw, 6.4rem) 4.5rem;
-      border-bottom: 1px solid var(--line);
-    }
-  
-    .eyebrow,
-    .kicker {
-      font-size: .76rem;
-      text-transform: uppercase;
-      letter-spacing: .15em;
-      font-weight: 800;
-      color: var(--blue);
-      margin-bottom: 1.25rem;
-    }
-  
-    .hero h1 .secondary {
-      display: block;
-      font-size: .37em;
-      font-weight: 500;
-      letter-spacing: -.025em;
-      color: var(--muted);
-      margin-top: .38em;
-    }
-  
-    .intro {
-      font-size: clamp(1.16rem, 1.7vw, 1.47rem);
-      max-width: 750px;
-      line-height: 1.49;
-      margin-bottom: 1.45rem;
-    }
-  
-    .intro strong { font-weight: 650; }
-  
-    .subintro {
-      max-width: 750px;
-      color: var(--muted);
-      margin-bottom: 1.65rem;
-    }
-  
-    .actions {
-      display: flex;
-      gap: .75rem;
-      flex-wrap: wrap;
-      margin-top: 1.7rem;
-    }
-  
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: .55rem;
-      padding: .72rem 1.05rem;
-      background: var(--ink);
-      color: white;
-      font-weight: 650;
-      font-size: .93rem;
-      border: 1px solid var(--ink);
-    }
-  
-    .btn.secondary {
-      background: transparent;
-      color: var(--ink);
-      border-color: #9cabb5;
-    }
-  
-    .btn:hover {
-      background: var(--blue);
-      border-color: var(--blue);
-      color: white;
-    }
-  
-    .hero-visual {
-      margin: 3rem 0 0;
-      background: #e7eef1;
-      border: 1px solid var(--line);
-      overflow: hidden;
-    }
-  
-    .hero-visual img {
-      width: 100%;
-      aspect-ratio: 16 / 7.4;
-      object-fit: contain;
-      background: white;
-    }
-  
-    .hero-visual figcaption {
-      padding: .65rem 1rem;
-      font-size: .8rem;
-      color: var(--muted);
-      border-top: 1px solid var(--line);
-    }
-  
-    .proof {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--line);
-      border: 1px solid var(--line);
-      margin-top: 1.75rem;
-    }
-  
-    .proof div {
-      background: white;
-      padding: 1rem 1.15rem;
-    }
-  
-    .proof strong {
-      display: block;
-      font-size: 1.42rem;
-      line-height: 1.25;
-      letter-spacing: -.04em;
-    }
-  
-    .proof span {
-      font-size: .78rem;
-      color: var(--muted);
-      line-height: 1.4;
-      display: block;
-      margin-top: .32rem;
-    }
-  
-    .section {
-      padding: 4.2rem clamp(1.5rem, 5.8vw, 6.4rem);
-      border-bottom: 1px solid var(--line);
-      scroll-margin-top: 1rem;
-    }
-  
-    .section-head {
-      max-width: 730px;
-      margin-bottom: 2rem;
-    }
-  
-    .section-head p {
-      color: var(--muted);
-      margin: 0;
-    }
-  
-    .project {
-      display: block;
-      padding: 2.25rem 0;
-      border-top: 1px solid var(--line);
-    }
-  
-    .project:last-child {
-      border-bottom: 1px solid var(--line);
-    }
-  
-    .project-index {
-      color: var(--blue);
-      font-weight: 750;
-      font-size: .78rem;
-      letter-spacing: .09em;
-      text-transform: uppercase;
-    }
-  
-    .project h3 { margin-bottom: .85rem; }
-  
-    .project p {
-      max-width: 660px;
-      color: #40536a;
-      margin-bottom: .7rem;
-    }
-  
-    .tags {
-      display: flex;
-      gap: .45rem;
-      flex-wrap: wrap;
-      margin-top: 1.1rem;
-    }
-  
-    .tags span {
-      border: 1px solid #c9d9df;
-      color: #335469;
-      padding: .21rem .55rem;
-      font-size: .75rem;
-      font-weight: 620;
-    }
-  
-    .project-link {
-      display: inline-block;
-      margin-top: 1rem;
-      font-size: .9rem;
-      font-weight: 650;
-      color: var(--blue);
-      border-bottom: 1px solid #8aabb8;
-    }
-  
-    .study-evidence {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: .7rem;
-      margin: 1.35rem 0 .45rem;
-    }
-  
-    .study-evidence div {
-      background: #e7eff1;
-      border-left: 3px solid var(--blue);
-      padding: .85rem 1rem;
-    }
-  
-    .study-evidence strong {
-      display: block;
-      font-size: 1.35rem;
-      line-height: 1.25;
-      letter-spacing: -.04em;
-    }
-  
-    .study-evidence span {
-      display: block;
-      color: var(--muted);
-      font-size: .82rem;
-      line-height: 1.4;
-      margin-top: .3rem;
-    }
-  
-    .project .study-note {
-      font-size: .8rem;
-      color: var(--muted);
-      margin: 0;
-    }
-  
-    .figure {
-      margin: 1.25rem 0 0;
-      background: white;
-      border: 1px solid var(--line);
-      padding: .45rem;
-    }
-  
-    .figure img { width: 100%; }
-  
-    .figure figcaption {
-      font-size: .78rem;
-      color: var(--muted);
-      padding: .45rem .3rem .2rem;
-    }
-  
-    .earlier-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1rem;
-    }
-  
-    .earlier-card {
-      background: white;
-      border: 1px solid var(--line);
-      padding: 1.3rem;
-      min-width: 0;
-    }
-  
-    .earlier-card h3 {
-      font-size: 1.25rem;
-      line-height: 1.24;
-      margin: .25rem 0 .7rem;
-    }
-  
-    .earlier-card p {
-      color: #40536a;
-      font-size: .93rem;
-      margin: 0;
-    }
-  
-    .earlier-card .figure { margin-top: 1rem; }
-  
-    .earlier-card .figure img {
-      height: 180px;
-      object-fit: contain;
-      background: #f5f7f8;
-    }
-  
-    .pub-category {
-      font-size: 1.08rem;
-      letter-spacing: -.02em;
-      margin: 2.1rem 0 .45rem;
-    }
-  
-    .pub-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-  
-    .pub-list li {
-      padding: 1.25rem 0;
-      border-top: 1px solid var(--line);
-    }
-  
-    .pub-list li:last-child {
-      border-bottom: 1px solid var(--line);
-    }
-  
-    .pub-title {
-      font-weight: 400;
-      line-height: 1.6;
-    }
-  
-    .pub-meta {
-      color: var(--muted);
-      font-size: .91rem;
-      margin-top: .35rem;
-    }
-  
-    .status {
-      color: #8b3c1e;
-      font-weight: 700;
-    }
-  
-    .pub-list a {
-      color: var(--blue);
-      border-bottom: 1px solid #8aabb8;
-    }
-  
-    .two-col {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-    }
-  
-    .timeline {
-      border-top: 1px solid var(--line);
-      padding: 1rem 0;
-    }
-  
-    .timeline strong { display: block; }
-  
-    .timeline small {
-      font-size: .84rem;
-      color: var(--muted);
-    }
-  
-    .timeline p {
-      margin: .38rem 0 0;
-      color: var(--muted);
-      font-size: .91rem;
-    }
-  
-    .contact { background: #e7eff1; }
-  
-    .contact p {
-      max-width: 670px;
-      color: #40536a;
-    }
-  
-    .email {
-      font-size: clamp(1.2rem, 2.4vw, 1.9rem);
-      font-weight: 650;
-      letter-spacing: -.03em;
-      border-bottom: 2px solid var(--blue);
-      overflow-wrap: anywhere;
-    }
-  
-    .footer {
-      padding: 1.3rem clamp(1.5rem, 5.8vw, 6.4rem);
-      color: var(--muted);
-      font-size: .8rem;
-    }
-  
-    .care-flow {
-      display: grid;
-      gap: .45rem;
-      margin: .35rem 0;
-    }
-  
-    .care-step {
-      background: #e7eff1;
-      border-left: 3px solid var(--blue);
-      padding: .55rem .8rem;
-      font-size: .87rem;
-      font-weight: 650;
-      line-height: 1.35;
-    }
-  
-    .care-flow .care-arrow {
-      color: var(--blue);
-      text-align: center;
-      font-size: 1rem;
-      line-height: 1;
-    }
-  
-    .earlier-card .care-figure { padding: .7rem; }
-  
-    .earlier-card .care-figure figcaption {
-      padding: .45rem .15rem .1rem;
-    }
-  
-    .project .proof {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      margin: 1.5rem 0 0;
-    }
-  
-    .project .proof div:last-child { grid-column: 1 / -1; }
-  
-    .project-gallery {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: .8rem;
-      margin-top: 1.25rem;
-      max-width: 750px;
-    }
-  
-    .project > .figure { max-width: 750px; }
-    .project-gallery .figure { margin: 0; }
-  
-    .project-gallery .figure img {
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-    }
-  
-    @media (max-width: 900px) {
-      .shell { display: block; }
-  
-      .rail {
-        position: relative;
-        height: auto;
-        padding: 1.15rem 1.5rem;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-      }
-  
-      .mark { font-size: 1.4rem; }
-  
-      .rail nav {
-        display: flex;
-        gap: .9rem;
-        overflow-x: auto;
-      }
-  
-      .rail nav a { font-size: .95rem; }
-      .rail-title, .rail-foot { display: none; }
-      .hero { padding-top: 3.2rem; }
-      .hero-visual img { aspect-ratio: 16 / 9; }
-    }
-  
-    @media (max-width: 580px) {
-      .rail {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: .75rem;
-      }
-  
-      .rail nav {
-        max-width: 100%;
-        white-space: nowrap;
-        font-size: .86rem;
-      }
-  
-      .hero { padding-bottom: 2.7rem; }
-      .hero-visual { margin-top: 2rem; }
-      .hero-visual img { aspect-ratio: 4 / 3; }
-      .proof { grid-template-columns: 1fr; }
-      .proof div { padding: .75rem 1rem; }
-      .proof strong { font-size: 1.22rem; }
-  
-      .section {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-      }
-  
-      .project {
-        display: block;
-        padding: 1.7rem 0;
-      }
-  
-      .project-index {
-        display: block;
-        margin-bottom: .65rem;
-      }
-  
-      .two-col,
-      .earlier-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-      }
-  
-      .study-evidence,
-      .project .proof,
-      .project-gallery {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .profile {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1rem;
-    }
-
-    .profile-photo {
-      width: 160px;
-      height: auto;
-      border-radius: 8px;
-    }
-
-    @media (max-width: 900px) {
-      .profile {
-        flex-direction: row;
-        align-items: center;
-        gap: .8rem;
-      }
-
-      .profile-photo {
-        width: 64px;
-        height: auto;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="shell">
-    <aside class="rail" aria-label="Site navigation">
-    <div class="profile">
-      <img class="profile-photo"
-           src="assets/jasper-profile.jpg"
-           alt="Jasper Cheng-Yen Chan">
-    
-      <a class="mark" href="#top">Jasper Chan</a>
-    </div>
-      <div><p class="rail-title">{{ rich:site.navigation_label }}</p><nav aria-label="Primary">
-        <a href="#research">Research</a>
-        <a href="#publications">Publications</a>
-        <a href="#background">Background</a>
-        <a href="#earlier-work">Earlier projects</a>
-      </nav>
-      </div>
-      <div class="rail-foot"><p>{{ rich:site.description_2 }}</p><a href="mailto:{{ attr:site.email }}">{{ text:site.email }}</a></div>
-    </aside>
-    <main class="main" id="top">
-      <section class="hero" aria-labelledby="name">
-        <p class="eyebrow">{{ rich:homepage.eyebrow }}</p>
-        <h1 id="name">{{ text:homepage.name }}<span class="secondary">{{ text:homepage.role }}</span></h1>
-        <p class="intro">{{ rich:homepage.intro }}</p>
-        <p class="subintro">{{ rich:homepage.research_interests }}</p>
-        <div class="actions"><a class="btn" href="#research">Explore research <span aria-hidden="true">↗</span></a><a class="btn secondary" href="mailto:{{ attr:site.email }}">Email me <span aria-hidden="true">↗</span></a><a class="btn secondary"
-           href="https://github.com/jasperchan1219"
-           target="_blank"
-           rel="noopener noreferrer">
-          GitHub <span aria-hidden="true">↗</span>
-        </a></div>
-      </section>
-      <section class="section" id="research" aria-labelledby="research-title"><div class="section-head"><h2 id="research-title">{{ text:research.heading }}</h2></div>
-        <article class="project"><h3>{{ text:research.visual_odometry_for_indoor_uavs.title }}</h3><p>{{ rich:research.visual_odometry_for_indoor_uavs.description }}</p><a class="project-link" href="{{ url:research.visual_odometry_for_indoor_uavs.link_url }}" target="_blank" rel="noopener noreferrer">{{ text:research.visual_odometry_for_indoor_uavs.link_label }}</a><div class="project-gallery"><figure class="figure"><img src="{{ asset:research.visual_odometry_for_indoor_uavs.image_path }}" alt="{{ attr:research.visual_odometry_for_indoor_uavs.image_alt }}" width="1920" height="1080" loading="lazy"><figcaption>{{ rich:research.visual_odometry_for_indoor_uavs.caption }}</figcaption></figure><figure class="figure"><img src="{{ asset:research.visual_odometry_for_indoor_uavs.image_path_2 }}" alt="{{ attr:research.visual_odometry_for_indoor_uavs.image_alt_2 }}" width="1278" height="720" loading="lazy"><figcaption>{{ rich:research.visual_odometry_for_indoor_uavs.caption_2 }}</figcaption></figure></div></article>
-        <article class="project">
-          <h3>{{ text:research.illumination_robust_3d_gaussian_maps.title }}</h3>
-          <p>{{ rich:research.illumination_robust_3d_gaussian_maps.description }}</p>
-          <p>{{ rich:research.illumination_robust_3d_gaussian_maps.description_2 }}</p>
-        
-          <figure class="figure">
-            <img src="{{ asset:research.illumination_robust_3d_gaussian_maps.image_path }}"
-                 alt="{{ attr:research.illumination_robust_3d_gaussian_maps.image_alt }}"
-                 width="2048" height="788" loading="lazy">
-            <figcaption>{{ rich:research.illumination_robust_3d_gaussian_maps.caption }}</figcaption>
-          </figure>
-
-          <figure class="figure">
-            <a
-              href="{{ asset:research.illumination_robust_3d_gaussian_maps.comparison_image_path }}"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Open correspondence comparison at full size"
-            >
-              <img
-                src="{{ asset:research.illumination_robust_3d_gaussian_maps.comparison_image_path }}"
-                alt="{{ attr:research.illumination_robust_3d_gaussian_maps.comparison_image_alt }}"
-                width="2048"
-                height="434"
-                loading="lazy"
-              >
-            </a>
-            <figcaption>
-              {{ rich:research.illumination_robust_3d_gaussian_maps.comparison_caption }}
-            </figcaption>
-          </figure>
-        
-          <div class="project-gallery">
-            <figure class="figure">
-              <img src="{{ asset:research.illumination_robust_3d_gaussian_maps.image_path_2 }}"
-                   alt="{{ attr:research.illumination_robust_3d_gaussian_maps.image_alt_2 }}"
-                   width="2048" height="1299" loading="lazy">
-              <figcaption>{{ rich:research.illumination_robust_3d_gaussian_maps.caption_2 }}</figcaption>
-            </figure>
-            <figure class="figure">
-              <img src="{{ asset:research.illumination_robust_3d_gaussian_maps.image_path_3 }}"
-                   alt="{{ attr:research.illumination_robust_3d_gaussian_maps.image_alt_3 }}"
-                   loading="lazy">
-              <figcaption>{{ rich:research.illumination_robust_3d_gaussian_maps.caption_3 }}</figcaption>
-            </figure>
-          </div>
-        </article>
-        <article class="project"><h3>{{ text:research.safe_robot_learning_for_active_3d_reconstruction.title }}</h3><p>{{ rich:research.safe_robot_learning_for_active_3d_reconstruction.description }}</p><p>{{ rich:research.safe_robot_learning_for_active_3d_reconstruction.description_2 }}</p><figure class="figure"><img src="{{ asset:research.safe_robot_learning_for_active_3d_reconstruction.image_path }}" alt="{{ attr:research.safe_robot_learning_for_active_3d_reconstruction.image_alt }}" width="994" height="787" loading="lazy"><figcaption>{{ rich:research.safe_robot_learning_for_active_3d_reconstruction.caption }}</figcaption></figure></article>
-      </section>
-      <section class="section" id="publications" aria-labelledby="publications-title">
-        <div class="section-head"><p class="kicker">{{ rich:publications.section_label }}</p><h2 id="publications-title">{{ text:publications.heading }}</h2><p>{{ rich:publications.description }}</p></div>
-        <ul class="pub-list"><li><div class="pub-title">{{ rich:publications.pub_title }}</div></li></ul>
-        <h3 class="pub-category">{{ text:publications.title }}</h3>
-        <ul class="pub-list"><li><div class="pub-title">{{ rich:publications.pub_title_2 }}</div></li></ul>
-        <h3 class="pub-category">{{ text:publications.title_2 }}</h3>
-        <ul class="pub-list">
-          <li><div class="pub-title">{{ rich:publications.pub_title_3 }}</div></li>
-          <li><div class="pub-title">{{ rich:publications.pub_title_4 }}</div></li>
-          <li><div class="pub-title">{{ rich:publications.pub_title_5 }}</div></li>
-          <li><div class="pub-title">{{ rich:publications.pub_title_6 }}</div></li>
-          <li><div class="pub-title">{{ rich:publications.pub_title_7 }}</div></li>
-        </ul>
-        <h3 class="pub-category">{{ text:publications.title_3 }}</h3>
-        <ul class="pub-list"><li><div class="pub-title">{{ rich:publications.pub_title_8 }}</div></li></ul>
-      </section>
-      <section class="section" id="background" aria-labelledby="background-title">
-        <div class="section-head">
-          <p class="kicker">{{ rich:background.section_label }}</p>
-          <h2 id="background-title">{{ text:background.heading }}</h2>
-        </div>
-      
-        <h3 class="pub-category">Research Experience</h3>
-        <div class="timeline">
-          <strong>{{ text:background.full_time_research_assistant_project_manager.title }}</strong>
-          <small>{{ text:background.full_time_research_assistant_project_manager.dates }}</small>
-          <p>{{ rich:background.full_time_research_assistant_project_manager.description }}</p>
-        </div>
-        <div class="timeline">
-          <strong>{{ text:background.research_assistant_project_manager.title }}</strong>
-          <small>{{ text:background.research_assistant_project_manager.dates }}</small>
-          <p>{{ rich:background.research_assistant_project_manager.description }}</p>
-        </div>
-      
-        <h3 class="pub-category">Education</h3>
-        <div class="timeline">
-          <strong>{{ text:background.m_s_in_computer_aided_engineering.title }}</strong>
-          <small>{{ text:background.m_s_in_computer_aided_engineering.dates }}</small>
-          <p>{{ rich:background.m_s_in_computer_aided_engineering.description }}</p>
-        </div>
-        <div class="timeline">
-          <strong>{{ text:background.b_s_in_civil_engineering.title }}</strong>
-          <small>{{ text:background.b_s_in_civil_engineering.dates }}</small>
-          <p>{{ rich:background.b_s_in_civil_engineering.description }}</p>
-        </div>
-      
-        <h3 class="pub-category">Teaching Experience</h3>
-        <div class="timeline">
-          <strong>{{ text:background.teaching_assistant.title }}</strong>
-          <small>{{ text:background.teaching_assistant.dates }}</small>
-          <p>{{ rich:background.teaching_assistant.description }}</p>
-        </div>
-      
-        <div class="two-col">
-          <div>
-            <h3 class="pub-category">Honors &amp; Awards</h3>
-            <div class="timeline">
-              <p>{{ rich:background.honors.description }}</p>
-            </div>
-          </div>
-      
-          <div>
-            <h3 class="pub-category">Skills &amp; Languages</h3>
-            <div class="timeline">
-              <strong>{{ text:background.technical_toolkit.title }}</strong>
-              <p>{{ rich:background.technical_toolkit.description }}</p>
-            </div>
-            <div class="timeline">
-              <strong>{{ text:background.languages.title }}</strong>
-              <p>{{ rich:background.languages.description }}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="section" id="earlier-work" aria-labelledby="earlier-title">
-        <div class="section-head"><h2 id="earlier-title">{{ text:earlier_work.heading }}</h2></div>
-        <div class="earlier-grid">
-          <article class="earlier-card"><div class="project-index">{{ text:earlier_work.global_motion_compensation_for_video.project_index }}</div><h3>{{ text:earlier_work.global_motion_compensation_for_video.title }}</h3><p>{{ rich:earlier_work.global_motion_compensation_for_video.description }}</p><figure class="figure"><img src="{{ asset:earlier_work.global_motion_compensation_for_video.image_path }}" alt="{{ attr:earlier_work.global_motion_compensation_for_video.image_alt }}" width="566" height="368" loading="lazy"><figcaption>{{ rich:earlier_work.global_motion_compensation_for_video.caption }}</figcaption></figure></article>
-          <article class="earlier-card"><div class="project-index">{{ text:earlier_work.construction_progress_from_schedules_and_images.project_index }}</div><h3>{{ text:earlier_work.construction_progress_from_schedules_and_images.title }}</h3><p>{{ rich:earlier_work.construction_progress_from_schedules_and_images.description }}</p></article>
-          <article class="earlier-card"><div class="project-index">{{ text:earlier_work.window_view_evaluation_in_vr.project_index }}</div><h3>{{ text:earlier_work.window_view_evaluation_in_vr.title }}</h3><p>{{ rich:earlier_work.window_view_evaluation_in_vr.description }}</p><figure class="figure"><img src="{{ asset:earlier_work.window_view_evaluation_in_vr.image_path }}" alt="{{ attr:earlier_work.window_view_evaluation_in_vr.image_alt }}" width="580" height="256" loading="lazy"><figcaption>{{ rich:earlier_work.window_view_evaluation_in_vr.caption }}</figcaption></figure></article>
-          <article class="earlier-card"><div class="project-index">{{ text:earlier_work.dementia_risk_evaluation_for_nursing_care.project_index }}</div><h3>{{ text:earlier_work.dementia_risk_evaluation_for_nursing_care.title }}</h3><p>{{ rich:earlier_work.dementia_risk_evaluation_for_nursing_care.description }}</p><figure class="figure care-figure" aria-label="Nursing notes and resident records feed a Random Forest model, which provides a risk estimate in nursing software"><div class="care-flow"><div class="care-step">Nursing notes &amp; resident records</div><div class="care-arrow" aria-hidden="true">↓</div><div class="care-step">Random Forest risk model</div><div class="care-arrow" aria-hidden="true">↓</div><div class="care-step">Risk estimate in nursing software</div></div><figcaption>{{ rich:earlier_work.dementia_risk_evaluation_for_nursing_care.caption }}</figcaption></figure></article>
-        </div>
-      </section>
-      <footer class="footer">
-        <a class="project-link" href="mailto:{{ attr:site.email }}">
-          {{ text:site.email }} ↗
-        </a>
-        <p style="margin: .8rem 0 0;">{{ rich:site.footer }}</p>
-      </footer>
-    </main>
-  </div>
-</body>
-</html>
+{
+  "site": {
+    "email": "jasperchan1219@gmail.com",
+    "description": "Jasper Cheng-Yen Chan researches visual odometry, 3D mapping, and autonomous UAVs in GPS-denied environments.",
+    "browser_title": "Jasper Cheng-Yen Chan | Robotics Research",
+    "navigation_label": "Explore",
+    "description_2": "Jasper Cheng-Yen Chan\nTaipei, Taiwan",
+    "footer": "© 2026 Jasper Cheng-Yen Chan · Taipei, Taiwan"
+  },
+  "homepage": {
+    "eyebrow": "Prospective PhD applicant · Fall 2027",
+    "role": "Research Assistant · National Taiwan University",
+    "name": "Jasper Cheng-Yen Chan",
+    "intro": "I develop **3D perception and robot autonomy** methods for reliable localization, mapping, and navigation.",
+    "research_interests": "For my PhD, I aim to develop human-centered robots that learn through interaction with people and provide assistance in everyday life."
+  },
+  "research": {
+    "heading": "Research",
+    "visual_odometry_for_indoor_uavs": {
+      "title": "Visual odometry for indoor UAVs",
+      "description": "I developed a hybrid visual odometry pipeline using deep feature detectors for GPS-denied flight. Across the EuRoC sequences, mean absolute trajectory error was **50% lower** and mean translational relative pose error was **77% lower** than VINS-Fusion. I also evaluated the system in real indoor UAV flights.",
+      "link_url": "https://doi.org/10.6342/NTU202502789",
+      "link_label": "NTU thesis record ↗",
+      "image_path": "assets/uav-platform-visual.png",
+      "image_alt": "Research quadrotor for visual odometry",
+      "caption": "Custom UAV platform I designed and assembled for visual odometry experiments.",
+      "image_path_2": "assets/indoor-flight.jpeg",
+      "image_alt_2": "Indoor UAV flight experiments conducted in a netted safety area",
+      "caption_2": "Indoor flight experiments in the NTU test area."
+    },
+    "illumination_robust_3d_gaussian_maps": {
+      "title": "Illumination-robust 3D Gaussian maps",
+      "description": "I use LiDAR-inertial geometry to build 3D Gaussian maps in dark spaces lit by a moving onboard light. Observations of the same physical points train a **DINOv2-based correspondence encoder**. The map stores separate features for matching and semantic understanding.",
+      "description_2": "Experiments in real low-light scenes showed that our learned features better distinguish different locations containing objects of the same category than pretrained DINOv2 features. We also tested **map-based pose correction on real UAV flights**. The manuscript is in preparation.",
+      "image_path": "assets/dark-map-overview.png",
+      "image_alt": "Three-stage pipeline: LiDAR-inertial poses and depth initialize a Gaussian map; paired dark images train a correspondence encoder; matching and semantic feature fields are distilled into each scene map",
+      "caption": "LiDAR-inertial mapping, illumination-robust correspondence learning, and per-scene feature distillation.",
+      "image_path_2": "assets/uav-platform-lidar.png",
+      "image_alt_2": "Research UAV equipped with LiDAR and onboard lighting",
+      "caption_2": "Research UAV equipped with LiDAR and onboard lighting.",
+      "image_path_3": "assets/dark-flight-experiment.png",
+      "image_alt_3": "Research UAV flying in a low-light office",
+      "caption_3": "Indoor UAV flight in a low-light office using onboard illumination.",
+      "comparison_image_path": "assets/fig_corr_4panel_office.png",
+      "comparison_image_alt": "Cross-view correspondence on a planar surface under changing onboard illumination: Feature-3DGS (LSeg) collapses matches to a few locations, while our learned correspondence field better preserves spatial distinctions.",
+      "comparison_caption": "Correspondence under changing onboard illumination. Feature-3DGS (LSeg) maps distinct surface points to a few locations, while our learned features better preserve their spatial distinctions."
+    },
+    "safe_robot_learning_for_active_3d_reconstruction": {
+      "title": "Safe robot learning for active 3D reconstruction",
+      "description": "With collaborators at NTU, we developed a hierarchical reinforcement learning framework for monocular 3D reconstruction with a micro aerial vehicle (MAV) in simulated indoor environments. A high-level policy selects viewpoints, while a low-level policy navigates with a control barrier function safety filter. SLAM-aware rewards help maintain visual tracking.",
+      "description_2": "In a navigation-policy comparison on unseen simulated layouts, the SLAM-aware variant achieved **88% task success versus 80%** without it, with **7% versus 10% tracking failures**.",
+      "image_path": "assets/rl-architecture.png",
+      "image_alt": "Hierarchical RL architecture from the research presentation: a high-level policy selects a viewpoint waypoint and a low-level navigation policy sends actions to a simulated UAV",
+      "caption": "High-level viewpoint selection and low-level navigation architecture. This study evaluated the framework in simulation."
+    }
+  },
+  "earlier_work": {
+    "heading": "Earlier projects",
+    "global_motion_compensation_for_video": {
+      "project_index": "Computer vision course project · 2023",
+      "title": "Global motion compensation for video",
+      "description": "Designed a global motion compensation system for video sequences with camera motion, exploring how alignment can reduce temporal redundancy between frames.",
+      "image_path": "assets/video-motion.png",
+      "image_alt": "Feature correspondences between two street-scene video frames for global motion compensation",
+      "caption": "Example frame correspondences from my project presentation."
+    },
+    "construction_progress_from_schedules_and_images": {
+      "project_index": "Undergraduate research · NTU · 2022–2023",
+      "title": "Construction progress monitoring from schedules and images",
+      "description": "Built a research framework to align construction schedules with site images. I used part-of-speech tagging and text preprocessing to extract floor and object information from progress documents, then trained LSTM and BERT models to classify schedule activities for progress analysis."
+    },
+    "window_view_evaluation_in_vr": {
+      "project_index": "Undergraduate research · NTU · 2022",
+      "title": "Window view evaluation in VR",
+      "description": "Developed interactive indoor environments in Unity with C# to study how different urban window views affect perception and preference. Participants carried out comparable tasks across the simulated scenes.",
+      "image_path": "assets/window-view-vr.png",
+      "image_alt": "Unity virtual room with a large window showing an urban street scene",
+      "caption": "One of the window-view scenes in the Unity simulation."
+    },
+    "dementia_risk_evaluation_for_nursing_care": {
+      "project_index": "AI and data science intern · Smart Ageing Tech · 2022",
+      "title": "Dementia risk evaluation for nursing care",
+      "description": "Developed a Random Forest model using nursing notes and resident records to estimate dementia risk. I compared model variants, achieved 94% accuracy on the reported test set, and deployed the model through an API for use in nursing software.",
+      "caption": "Project workflow adapted from my 2022 internship presentation."
+    }
+  },
+  "publications": {
+    "section_label": "Research output",
+    "heading": "Papers & presentations",
+    "description": "Research manuscripts, accepted presentations, and my master’s thesis; statuses updated September 2026.",
+    "pub_title": "**C.-Y. Chan**, C.-Y. Fan, W.-T. Chang, and C.-S. Chen, “Evaluating Deep Feature Detectors for Visual Odometry in UAVs: Accuracy vs. Robustness under Real-World Flight,” *IEEE Transactions on Instrumentation and Measurement* (under review).",
+    "title": "Manuscript in preparation",
+    "pub_title_2": "**C.-Y. Chan**, W.-T. Chang, and C.-S. Chen, “Illumination-Robust Correspondence Fields for Dark 3D Gaussian Maps,” manuscript in preparation, 2026.",
+    "title_2": "Conference papers · accepted for presentation",
+    "pub_title_3": "**C.-Y. Chan**, W.-T. Chang, and C.-S. Chen, “UAV Technologies for Civil Engineering Applications in GPS-Denied Environments,” in *Proc. KKHTCNN Symposium on Civil Engineering*, National Taiwan University, Taipei, Taiwan, Nov. 2026 (accepted for presentation).",
+    "pub_title_4": "**C.-Y. Chan**, W.-T. Chang, and C.-S. Chen, “Autonomous UAVs in GPS-Denied Indoor Environments: System Integration, Control, and Applications,” in *Proc. 4th Annual Meeting and Conference of the Association of Computational Mechanics Taiwan (ACMT 2026)*, Taipei, Taiwan, Oct. 2026 (accepted for presentation).",
+    "pub_title_5": "C.-Y. Fan, **C.-Y. Chan**, W.-T. Chang, and C.-S. Chen, “Autonomous UAV-Based Visual Inspection for Structural Health in Unknown Indoor Buildings,” in *Proc. 4th Annual Meeting and Conference of the Association of Computational Mechanics Taiwan (ACMT 2026)*, Taipei, Taiwan, Oct. 2026 (accepted for presentation).",
+    "pub_title_6": "J.-Z. Lin, **C.-Y. Chan**, W.-T. Chang, and C.-S. Chen, “Dynamic-Aware 4D Mapping for Indoor UAV Inspection,” in *Proc. 4th Annual Meeting and Conference of the Association of Computational Mechanics Taiwan (ACMT 2026)*, Taipei, Taiwan, Oct. 2026 (accepted for presentation).",
+    "pub_title_7": "D.-J. Hsu, **C.-Y. Chan**, W.-T. Chang, and C.-S. Chen, “Cross-Platform Micro-UAV Self-Localization via Hierarchical Visual Localization on a Prior Map,” in *Proc. 4th Annual Meeting and Conference of the Association of Computational Mechanics Taiwan (ACMT 2026)*, Taipei, Taiwan, Oct. 2026 (accepted for presentation).",
+    "title_3": "Master’s thesis",
+    "pub_title_8": "**C.-Y. Chan**, “Lightweight Visual Odometry with Deep Features for Autonomous UAVs in GPS-Denied Environments: Real-World Flight Validation,” M.S. thesis, Dept. of Civil Engineering, National Taiwan University, Taipei, Taiwan, 2025. [NTU repository record · full text not publicly available ↗](https://doi.org/10.6342/NTU202502789).\n**Thesis committee:** **Prof. Pei-Chun Lin**, **Prof. Je-Chian Lin**, and **Prof. Chuin-Shan Chen**."
+  },
+  "background": {
+    "section_label": "Background",
+    "heading": "Experience & Education",
+    "full_time_research_assistant_project_manager": {
+      "title": "Full-time Research Assistant & Project Manager",
+      "dates": "National Taiwan University · Oct. 2025–present",
+      "description": "Conduct research in collaboration with National Center for Research on Earthquake Engineering on LiDAR-assisted 3D Gaussian mapping, illumination-robust correspondence, and safe robot learning."
+    },
+    "research_assistant_project_manager": {
+      "title": "Research Assistant & Project Manager",
+      "dates": "National Taiwan University · Feb. 2023–Oct. 2025",
+      "description": "Coordinated the team’s localization and path-planning work and helped integrate these components for indoor flight. Designed a custom quadrotor with onboard computing, a flight controller, and stereo vision."
+    },
+    "m_s_in_computer_aided_engineering": {
+      "title": "M.S. in Computer-Aided Engineering",
+      "dates": "National Taiwan University · 2023–2025",
+      "description": "Department of Civil Engineering · GPA 4.01/4.30 · Advisor: Prof. Chuin-Shan (David) Chen."
+    },
+    "b_s_in_civil_engineering": {
+      "title": "B.S. in Civil Engineering",
+      "dates": "National Taiwan University · 2019–2023",
+      "description": "GPA 3.84/4.30 · Ranked 17th of 95 students."
+    },
+    "teaching_assistant": {
+      "title": "Teaching assistant",
+      "dates": "National Taiwan University · 2024–2025",
+      "description": "Introduction to Machine Learning and Deep Learning; Computer Programming (Python)."
+    },
+    "technical_toolkit": {
+      "title": "Technical toolkit",
+      "description": "Python, C++, ROS/ROS 2, Linux, visual and LiDAR-based odometry and SLAM, LiDAR and RGB-D sensing, PX4/ArduPilot, Gazebo, Unity (AR/VR), PyTorch, TensorFlow, Docker."
+    },
+    "languages": {
+      "title": "Languages",
+      "description": "Mandarin Chinese (native), English (fluent), Japanese (JLPT N2)."
+    },
+    "honors": {
+      "title": "Honors",
+      "description": "Honorable Mention, NASA International Space Apps Challenge (2024)\nFinalist, Lawsnote LegalTech Hackathon (2024)"
+    }
+  }
+}
