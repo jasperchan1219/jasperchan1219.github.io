@@ -16,6 +16,12 @@
   },
   "research": {
     "heading": "Research",
+    "online_visual_topological_memory_for_mav": {
+      "title": "Online visual-topological memory for language-guided MAV navigation",
+      "status": "Ongoing research",
+      "description": "I am investigating how monocular micro aerial vehicles can build visual-topological memory while following natural-language navigation instructions. Preliminary experiments with the MAV highlighted limitations of reactive vision-language navigation in sequential tasks involving initially unseen targets.",
+      "description_2": "The proposed approach incrementally organizes RGB keyframes into a topological graph during navigation, aiming to support route awareness, revisiting, and longer-horizon instruction following without a prebuilt map."
+    },
     "visual_odometry_for_indoor_uavs": {
       "title": "Visual odometry for indoor UAVs",
       "description": "I developed a hybrid visual odometry pipeline using deep feature detectors for GPS-denied flight. Across the EuRoC sequences, mean absolute trajectory error was **50% lower** and mean translational relative pose error was **77% lower** than VINS-Fusion. I also evaluated the system in real indoor UAV flights.",
