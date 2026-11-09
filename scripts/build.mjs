@@ -13,20 +13,25 @@ function rich(s){
  return s.replace(/\u0000(\d+)\u0000/g,(_,i)=>links[Number(i)]);
 }
 const assetPaths=[];
-const html=template.replace(/\{\{\s*(text|attr|rich|url|asset):([\w.]+)\s*\}\}/g,(_,kind,path)=>{
+const documentPaths=[];
+const html=template.replace(/\{\{\s*(text|attr|rich|url|asset|file):([\w.]+)\s*\}\}/g,(_,kind,path)=>{
  const value=path.split('.').reduce((v,k)=>v?.[k],content);
  if(typeof value!=='string')throw Error('Missing text field: '+path);
  if(kind==='asset'){
   if(!/^assets\/[A-Za-z0-9_./-]+\.(png|jpe?g|webp|gif)$/i.test(value)||value.includes('..'))throw Error('Invalid image path: '+path);
   assetPaths.push(value);return esc(value);
  }
+ if(kind==='file'){
+  if(!/^assets\/[A-Za-z0-9_./-]+\.pdf$/i.test(value)||value.includes('..'))throw Error('Invalid PDF path: '+path);
+  documentPaths.push(value);return esc(value);
+ }
  return kind==='rich'?rich(value):kind==='url'?url(value):esc(value);
 });
-if(/\{\{\s*(text|attr|rich|url|asset):/.test(html))throw Error('Unresolved template field');
-for(const path of assetPaths)await stat(resolve(root,path));
+if(/\{\{\s*(text|attr|rich|url|asset|file):/.test(html))throw Error('Unresolved template field');
+for(const path of [...assetPaths,...documentPaths])await stat(resolve(root,path));
 await rm(resolve(root,'_site'),{recursive:true,force:true});
 await mkdir(resolve(root,'_site'),{recursive:true});
 await cp(resolve(root,'assets'),resolve(root,'_site/assets'),{recursive:true});
 await writeFile(resolve(root,'_site/index.html'),html);
 await writeFile(resolve(root,'_site/.nojekyll'),'');
-console.log('Website built successfully; '+assetPaths.length+' image references checked.');
+console.log('Website built successfully; '+assetPaths.length+' image references and '+documentPaths.length+' PDF references checked.');
