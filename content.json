@@ -5,7 +5,9 @@
     "browser_title": "Jasper Cheng-Yen Chan | Robotics Research",
     "navigation_label": "Explore",
     "description_2": "Jasper Cheng-Yen Chan\nTaipei, Taiwan",
-    "footer": "© 2026 Jasper Cheng-Yen Chan · Taipei, Taiwan"
+    "footer": "© 2026 Jasper Cheng-Yen Chan · Taipei, Taiwan",
+    "cv_path": "assets/Cheng-Yen_Chan_CV.pdf",
+    "cv_label": "Download CV"
   },
   "homepage": {
     "eyebrow": "Prospective PhD applicant · Fall 2027",
@@ -19,12 +21,12 @@
     "online_visual_topological_memory_for_mav": {
       "title": "Online visual-topological memory for language-guided MAV navigation",
       "status": "Ongoing research",
-      "description": "I am investigating how monocular micro aerial vehicles can build visual-topological memory while following natural-language navigation instructions. Preliminary experiments with the MAV highlighted limitations of reactive vision-language navigation in sequential tasks involving initially unseen targets.",
-      "description_2": "The proposed approach incrementally organizes RGB keyframes into a topological graph during navigation, aiming to support route awareness, revisiting, and longer-horizon instruction following without a prebuilt map."
+      "description": "I am investigating **online, traversability-aware visual-topological memory** for language-guided monocular MAV navigation. The goal is for a micro aerial vehicle to build a keyframe graph during the same flight in which it follows natural-language instructions, without relying on a prebuilt map.",
+      "description_2": "The ongoing research distinguishes **previously traversed edges** from visually inferred **loop-closure edges**, whose flyability must be verified. I am also exploring language-scored frontier nodes for unseen targets and a learned image-goal policy for executing graph edges, with the aim of supporting revisits and multi-step navigation."
     },
     "visual_odometry_for_indoor_uavs": {
       "title": "Visual odometry for indoor UAVs",
-      "description": "I developed a hybrid visual odometry pipeline using deep feature detectors for GPS-denied flight. Across the EuRoC sequences, mean absolute trajectory error was **50% lower** and mean translational relative pose error was **77% lower** than VINS-Fusion. I also evaluated the system in real indoor UAV flights.",
+      "description": "I developed a hybrid visual odometry framework combining deep feature detectors (SuperPoint and XFeat) with KLT tracking for GPS-denied UAV navigation. On EuRoC, the **XFeat-based variant reduced mean absolute trajectory error by 53.5%** and **mean translational relative pose error by 77.5%** compared with VINS-Fusion. In real indoor flight tests, it achieved **90% figure-eight flight success**, versus **40%** for the baseline.",
       "link_url": "https://doi.org/10.6342/NTU202502789",
       "link_label": "NTU thesis record ↗",
       "image_path": "assets/uav-platform-visual.png",
@@ -36,8 +38,8 @@
     },
     "illumination_robust_3d_gaussian_maps": {
       "title": "Illumination-robust 3D Gaussian maps",
-      "description": "I use LiDAR-inertial geometry to build 3D Gaussian maps in dark spaces lit by a moving onboard light. Observations of the same physical points train a **DINOv2-based correspondence encoder**. The map stores separate features for matching and semantic understanding.",
-      "description_2": "Experiments in real low-light scenes showed that our learned features better distinguish different locations containing objects of the same category than pretrained DINOv2 features. We also tested **map-based pose correction on real UAV flights**. The manuscript is in preparation.",
+      "description": "I developed a LiDAR-inertial pipeline for depth-supervised **3D Gaussian mapping in dark indoor environments** illuminated by a moving onboard light. I also developed a **geometry-supervised correspondence learning framework** for illumination-robust cross-view matching, with correspondence and semantic features distilled into separate fields in the Gaussian map.",
+      "description_2": "Experiments across three dark scenes evaluated cross-view correspondence under changing illumination. We additionally evaluated **offline map-based odometry correction using recorded UAV flight data**; these results should not be interpreted as online closed-loop flight correction. The manuscript is **in preparation**.",
       "image_path": "assets/dark-map-overview.png",
       "image_alt": "Three-stage pipeline: LiDAR-inertial poses and depth initialize a Gaussian map; paired dark images train a correspondence encoder; matching and semantic feature fields are distilled into each scene map",
       "caption": "LiDAR-inertial mapping, illumination-robust correspondence learning, and per-scene feature distillation.",
@@ -93,8 +95,8 @@
   "publications": {
     "section_label": "Research output",
     "heading": "Publications & Manuscripts",
-    "description": "Research manuscripts, conference presentations, and my master’s thesis. Updated October 2026.",
-    "pub_title": "**C.-Y. Chan**, C.-Y. Fan, W.-T. Chang, and C.-S. Chen, “Evaluating Deep Feature Detectors for Visual Odometry in UAVs: Accuracy vs. Robustness under Real-World Flight,” *IEEE Transactions on Instrumentation and Measurement* (under review).",
+    "description": "Research manuscripts, conference presentations, and my master’s thesis. Updated November 2026.",
+    "pub_title": "**C.-Y. Chan**, C.-Y. Fan, W.-T. Chang, and C.-S. Chen (2026), “Evaluating Deep Feature Detectors for Visual Odometry in Unmanned Aerial Vehicles: Accuracy–Robustness Trade-Offs under Real-World Flight,” *Computer Modeling in Engineering & Sciences*, under review.",
     "title": "Manuscripts in Preparation",
     "pub_title_2": "**C.-Y. Chan**, W.-T. Chang, and C.-S. Chen, “Illumination-Robust Correspondence Fields for Dark 3D Gaussian Maps,” manuscript in preparation, 2026.",
     "title_2": "Conference Presentations",
@@ -106,7 +108,8 @@
     "title_3": "Master’s thesis",
     "pub_title_8": "**C.-Y. Chan**, “Lightweight Visual Odometry with Deep Features for Autonomous UAVs in GPS-Denied Environments: Real-World Flight Validation,” M.S. thesis, Dept. of Civil Engineering, National Taiwan University, Taipei, Taiwan, 2025. [NTU repository record · full text not publicly available ↗](https://doi.org/10.6342/NTU202502789).\n**Thesis committee:** **Prof. Pei-Chun Lin**, **Prof. Je-Chian Lin**, and **Prof. Chuin-Shan Chen**.",
     "title_under_review": "Manuscripts Under Review",
-    "pub_title_hierarchical_localization": "D.-J. Hsu, **C.-Y. Chan**, W.-T. Chang, and C.-S. Chen, “Real-Time Hierarchical Visual Localization for MAVs in GPS-Denied Environments,” manuscript in preparation, 2026."
+    "pub_title_hierarchical_localization": "D.-J. Hsu, **C.-Y. Chan**, W.-T. Chang, and C.-S. Chen, “Real-Time Hierarchical Visual Localization for MAVs in GPS-Denied Environments,” manuscript in preparation, 2026.",
+    "pub_title_visual_inspection": "C.-Y. Fan, **C.-Y. Chan**, W.-T. Chang, and C.-S. Chen, “Autonomous UAV-Based Visual Inspection for Structural Health in Unknown Indoor Buildings,” manuscript in preparation (working title)."
   },
   "background": {
     "section_label": "Background",
@@ -114,7 +117,7 @@
     "full_time_research_assistant_project_manager": {
       "title": "Full-time Research Assistant & Project Manager",
       "dates": "National Taiwan University · Oct. 2025–present",
-      "description": "Conduct research in collaboration with National Center for Research on Earthquake Engineering on LiDAR-assisted 3D Gaussian mapping, illumination-robust correspondence, and safe robot learning."
+      "description": "Research on illumination-robust 3D Gaussian mapping and correspondence, language-guided MAV navigation with online visual-topological memory, and safe robot learning, in collaboration with NTU and NCREE researchers."
     },
     "research_assistant_project_manager": {
       "title": "Research Assistant & Project Manager",
