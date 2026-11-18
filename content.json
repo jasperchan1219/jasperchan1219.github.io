@@ -39,7 +39,7 @@
     "illumination_robust_3d_gaussian_maps": {
       "title": "Illumination-robust 3D Gaussian maps",
       "description": "I developed a LiDAR-inertial pipeline for depth-supervised **3D Gaussian mapping in dark indoor environments** illuminated by a moving onboard light. I also developed a **geometry-supervised correspondence learning framework** for illumination-robust cross-view matching, with correspondence and semantic features distilled into separate fields in the Gaussian map.",
-      "description_2": "Experiments across three dark scenes evaluated cross-view correspondence under changing illumination. We additionally evaluated **offline map-based odometry correction using recorded UAV flight data**; these results should not be interpreted as online closed-loop flight correction. The manuscript has been **submitted to *Robotics and Autonomous Systems***.",
+      "description_2": "Experiments across three dark scenes evaluated cross-view correspondence under changing illumination. We additionally evaluated **offline map-based odometry correction using recorded UAV flight data**; these results should not be interpreted as online closed-loop flight correction. The manuscript has been **submitted to *Robotics and Autonomous Systems**.",
       "image_path": "assets/dark-map-overview.png",
       "image_alt": "Three-stage pipeline: LiDAR-inertial poses and depth initialize a Gaussian map; paired dark images train a correspondence encoder; matching and semantic feature fields are distilled into each scene map",
       "caption": "LiDAR-inertial mapping, illumination-robust correspondence learning, and per-scene feature distillation.",
