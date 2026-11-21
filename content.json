@@ -88,7 +88,7 @@
     "dementia_risk_evaluation_for_nursing_care": {
       "project_index": "AI and data science intern · Smart Ageing Tech · 2022",
       "title": "Dementia risk evaluation for nursing care",
-      "description": "Developed a dementia-risk assessment model based on a knowledge graph, using TF-IDF representations and model tuning to identify risk factors. The reported classification accuracy improved from **60% to 94%**. I also developed and deployed a **cloud-based API** for real-time risk assessment, integrated with the company’s smart nursing information system for **trial use**.",
+      "description": "Developed a dementia-risk assessment model based on a knowledge graph, using TF-IDF representations and model tuning to identify risk factors. The reported classification accuracy improved from **60% to 94%**. I also developed and deployed a **cloud-based API** for real-time risk assessment, integrated with the company’s smart nursing information system.",
       "caption": "Model development and cloud API trial integration, based on my 2022 internship project."
     }
   },
